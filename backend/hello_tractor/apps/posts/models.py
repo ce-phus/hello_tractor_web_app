@@ -43,6 +43,11 @@ class Post(TimeStampedUUIDModel):
 
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, default=get_default_profile)
 
+    model = models.CharField(
+        verbose_name=_("Model"),
+        max_length=250,
+        default="",
+    )
 
     description = models.TextField(
         verbose_name=_("Description"),

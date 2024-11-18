@@ -75,7 +75,7 @@ class PostSerializer(serializers.ModelSerializer):
         return [{"photo": photo.photo.url} for photo in photos]
     
 
-class PropertyCreateSerializer(serializers.ModelSerializer):
+class PostCreateSerializer(serializers.ModelSerializer):
     country = CountryField(name_only=True)
     cover_photo = serializers.ImageField(required=False)
 
@@ -98,7 +98,7 @@ class PropertyCreateSerializer(serializers.ModelSerializer):
         ]
 
 
-class PropertyViewSerializer(serializers.ModelSerializer):
+class PostViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostView
         exclude = ["updated_at", "pkid"]
