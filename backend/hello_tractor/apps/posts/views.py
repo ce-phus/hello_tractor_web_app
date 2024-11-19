@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 from .exceptions import PostNotFound
 from .models import Post, PostPhoto, PostView
 from .serializers import PostSerializer, PostCreateSerializer, PostViewSerializer
+from apps.profiles.models import Profile
 
 class PostFilter(django_filters.FilterSet):
     advert_type = django_filters.CharFilter(
@@ -37,6 +38,18 @@ class ListAllPostsAPIView(APIView):
     filterset_class = PostFilter
     search_fields = ['country', 'city']
     ordering_fields = ['created_at']
+
+class IndexView(generics.GenericAPIView):
+    def get(self, request, *args, **kwargs):
+        featured_posts = Post.objects.filter(is_featured=True)
+        popular_posts = Post.objects.order_by("-views")[:8]
+
+        response_data = {
+            "featured_posts": PostSerializer(featured_posts, many=True).data,
+            "popular_posts": PostSerializer(popular_posts, many=True).data
+        }
+
+        return Response(response_data, status=status.HTTP_200_OK)
 
 class ListSellersPropertiesAPIView(generics.ListAPIView):
     serializer_class = PostSerializer
@@ -106,6 +119,7 @@ def update_post_api_view(request, slug):
 @permission_classes([permissions.IsAuthenticated])
 def create_post_api_view(request):
     user = request.user
+    seller_profile = Profile.objects.get(user=user, is_seller=True)
     data = {
         "user":user.pkid,
         "title": request.data.get('title'),
@@ -122,18 +136,19 @@ def create_post_api_view(request):
         data['cover_photo'] = request.FILES['cover_photo']
 
     serializer = PostCreateSerializer(data=data)
+    if seller_profile:
+        if serializer.is_valid():
+            post_instance = serializer.save
+            photos = request.FILES.getlist("photos")
 
-    if serializer.is_valid():
-        post_instance = serializer.save
-        photos = request.FILES.getlist("photos")
+            for photo in photos:
+                PostPhoto.objects.create(post=post_instance, photo=photo)
 
-        for photo in photos:
-            PostPhoto.objects.create(post=post_instance, photo=photo)
-
-        full_post_data = PostSerializer(post_instance).data
-        return Response(full_post_data, status=status.HTTP_201_CREATED)
+            full_post_data = PostSerializer(post_instance).data
+            return Response(full_post_data, status=status.HTTP_201_CREATED)
     
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response({"error": "To create a post user must be a seller"}, status=status.HTTP_403_FORBIDDEN)
 
 @api_view(["DELETE"])
 @permission_classes([permissions.IsAuthenticated])

@@ -71,7 +71,7 @@ class PostSerializer(serializers.ModelSerializer):
         return f"{first_name} {last_name}"
 
     def get_photos(self, obj):
-        photos = PostPhoto.objects.filter(property=obj)
+        photos = PostPhoto.objects.filter(post=obj)
         return [{"photo": photo.photo.url} for photo in photos]
     
 

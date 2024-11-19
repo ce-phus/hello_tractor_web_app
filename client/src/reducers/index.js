@@ -8,12 +8,17 @@ import {
     userResetPasswordReducer,
      } from "./userReducer";
 
+import {
+    postIndexReducer
+} from "./postReducer"
+
 const allReducers = combineReducers({
     userLoginReducer,
     userRegisterReducer,
     userActivateReducer,
     userResetPasswordConfirmReducer,
     userResetPasswordReducer,
+    postIndexReducer,
 });
 
 export default allReducers

@@ -49,6 +49,7 @@ class Post(TimeStampedUUIDModel):
         default="",
     )
 
+    is_featured = models.BooleanField(default=False)
     description = models.TextField(
         verbose_name=_("Description"),
         default="",

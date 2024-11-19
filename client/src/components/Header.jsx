@@ -14,7 +14,7 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
   // console.log('Profile: ', profile)
   
   return (
-    <nav className='fixed w-full bg-white border-b dark:bg-dark  border-transparent flex items-center justify-between'>
+    <nav className='fixed z-20 w-full bg-white border-b dark:bg-dark  border-transparent flex items-center justify-between'>
       <div className='flex items-center'>
         <button
           className="navbar-burger flex items-center dark:text-white text-dark-600 p-3"

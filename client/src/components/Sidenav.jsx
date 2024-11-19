@@ -57,7 +57,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <IoHome className='mt-1 w-6 h-6 '/> Home
@@ -68,7 +68,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/explore'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <MdOutlineExplore className='mt-1 w-6 h-6 ' /> Explore
@@ -79,7 +79,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/casts'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <FaVideo className='mt-1 w-6 h-6 ' /> Films
@@ -90,7 +90,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/popular'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <FaClapperboard className='mt-1 w-6 h-6 ' /> Scenes
@@ -105,7 +105,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/create'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <LuCross className='mt-1  w-6 h-6 '/> Create
@@ -120,7 +120,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 // to={profile ? `/inbox/${profile.username}` : "#"}
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <AiFillMessage className='mt-1 w-6 h-6 ' /> Message
@@ -151,7 +151,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/about'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <FcAbout className='mt-1 w-6 h-6 '/> About
@@ -161,7 +161,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/settings'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-gray-300 dark:bg-gray-600' : ''}`
+                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <CiSettings className='mt-1 w-6 h-6 '/> Settings
