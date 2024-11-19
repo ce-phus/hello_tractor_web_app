@@ -30,8 +30,10 @@ const FooterLinks = [
 
 const Footer = () => {
   return (
+    
     <div className="dark:bg-dark">
-      <div className="container">
+        <hr className='mx-5 border-gray-300 dark:border-gray-700 my-4 shadow'/>
+      <div className="container mx-auto">
         <div className="grid md:grid-cols-3 pb-20 pt-5">
           {/* company details */}
           <div className="py-8 px-4">

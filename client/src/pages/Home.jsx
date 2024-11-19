@@ -252,7 +252,7 @@ const Home = () => {
               )}
             </div>
         </div>
-        <hr className='w-full mx-2 border-gray-300 dark:border-gray-700 my-4'/>
+        
         <Footer/>
       </div>
     

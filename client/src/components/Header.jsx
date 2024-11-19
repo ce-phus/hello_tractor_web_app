@@ -11,7 +11,6 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
   // const getProfileReducer = useSelector((state) => state.getProfileReducer);
   // const { profile } = getProfileReducer
   // console.log('Profile Photo: ', profile?.profile_photo)
-  // console.log('Profile: ', profile)
   
   return (
     <nav className='fixed z-20 w-full bg-white border-b dark:bg-dark  border-transparent flex items-center justify-between'>
@@ -34,7 +33,7 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
       
 
       <div className="flex items-center mx-3 pt-2">
-        <div className="md:w-full mr-2">
+        <div className="md:w-[500px] mr-2">
           <form className="max-w-lg mx-auto">
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div className="relative">
