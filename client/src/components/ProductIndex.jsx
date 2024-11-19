@@ -5,7 +5,6 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 const ProductIndex = ({ post }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const photos = post.photos || [];
-  console.log("Photos: ", photos);
 
   const API_URL = import.meta.env.VITE_API_URL;
   const fullImageUrl = API_URL + post.cover_photo;

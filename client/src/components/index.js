@@ -6,6 +6,7 @@ import Spinner from "./Spinner";
 import ProductIndex from "./ProductIndex";
 import Banner from "./Banner";
 import Footer from "./Footer";
+import ProfilePosts from "./ProfilePosts";
 
 export {
     Layout,
@@ -15,5 +16,6 @@ export {
     Spinner,
     ProductIndex,
     Banner,
-    Footer
+    Footer,
+    ProfilePosts
 }

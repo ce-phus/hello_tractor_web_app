@@ -3,6 +3,8 @@ from rest_framework import fields, serializers
 
 from apps.ratings.serializers import RatingSerializer
 from .models import Profile
+from apps.posts.models import Post
+from apps.posts.serializers import PostSerializer
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -13,6 +15,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField(read_only=True)
     country = CountryField(name_only=True)
     reviews = serializers.SerializerMethodField(read_only=True)
+    posts = serializers.SerializerMethodField(read_only=True)
     
     class Meta:
         model = Profile
@@ -26,13 +29,11 @@ class ProfileSerializer(serializers.ModelSerializer):
             "phone_number",
             "profile_photo",
             "about_me",
-            "license",
             "gender",
             "country",
             "city",
             "is_buyer",
             "is_seller",
-            "is_agent",
             "rating",
             "num_reviews",
             "reviews",
@@ -40,6 +41,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "twitter_url",
             "instagram_url",
             "threads_url",
+            "posts"
         ]
 
     def get_full_name(self, obj):
@@ -52,6 +54,10 @@ class ProfileSerializer(serializers.ModelSerializer):
         serializer = RatingSerializer(reviews, many=True)
         return serializer.data
     
+    def get_posts(self, obj):
+        posts = Post.objects.filter(user=obj.user)
+        serializer = PostSerializer(posts, many=True)
+        return serializer.data
     
 
 class UpdateProfileSerializer(serializers.ModelSerializer):
@@ -63,22 +69,20 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "phone_number",
             "profile_photo",
             "about_me",
-            "license",
             "gender",
             "country",
             "city",
             "is_buyer",
             "is_seller",
-            "is_agent",
             "facebook_url",
             "twitter_url",
             "instagram_url",
             "threads_url",
-            "top_agent",
+
         ]
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        if instance.top_agent:
-            representation["top_agent"] = True
-        return representation
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     if instance.top_agent:
+    #         representation["top_agent"] = True
+    #     return representation

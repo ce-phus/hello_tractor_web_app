@@ -4,13 +4,18 @@ import { Link } from 'react-router-dom';
 import DarkMode from './Darkmode';
 import { useNavigate } from 'react-router-dom';
 import { logo, logo1 } from '../assets';
+import { getProfile } from '../actions/profileActions';
 
 
 const Header = ({ toggleSidebar, isSidebarOpen }) => {
+  const dispatch = useDispatch()
+  const getProfileReducer = useSelector((state) => state.getProfileReducer);
+  const { profile } = getProfileReducer
+  console.log('Profile Photo: ', profile?.profile_photo)
 
-  // const getProfileReducer = useSelector((state) => state.getProfileReducer);
-  // const { profile } = getProfileReducer
-  // console.log('Profile Photo: ', profile?.profile_photo)
+  useEffect(()=> {
+    dispatch(getProfile())
+}, [dispatch])
   
   return (
     <nav className='fixed z-20 w-full bg-white border-b dark:bg-dark  border-transparent flex items-center justify-between'>
@@ -53,15 +58,15 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
           </form>
         </div>
         <DarkMode className="mr-"/>
-        {/* <div>
-        <Link to={profile ? `/my-profile` : '#'}>
+        <div>
+        <Link to={profile ? `/me` : '#'}>
             <img
               src={profile?.profile_photo || 'default-profile-image-url'}
               className='w-10 h-10 mx-3 rounded-full object-cover'
               alt="Profile"
             />
           </Link>
-        </div> */}
+        </div>
       </div>
     </nav>
   );

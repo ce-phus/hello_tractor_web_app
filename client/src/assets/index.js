@@ -10,6 +10,8 @@ import tractor from "./tractor.png"
 import tractor1 from "./tractor1.png"
 import tractor2 from "./tractor2.png"
 import dashboard from "./dashboard.png"
+import post from "./post.png"
+import close from "./close.svg"
 
 export {
     img,
@@ -23,5 +25,7 @@ export {
     tractor,
     tractor1,
     tractor2,
-    dashboard
+    dashboard,
+    post,
+    close
 }

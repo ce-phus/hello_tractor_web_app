@@ -36,7 +36,10 @@ const Layout = ({ children }) => {
 
   if (!userInfo) {
     return (
+      <div className='dark:bg-dark'>
         <Login />
+        </div>
+        
     );
   }
 

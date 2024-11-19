@@ -109,7 +109,7 @@ const Home = () => {
           <h1 className='text-3xl font-bold tracking-wide text-accent flex items-center justify-center'>Featured Posts</h1>
           <div className='mt-5'>
             {loading ? (
-              <div className='grid grid-cols-1 md:gr-d-cols-3 lg:grid-cols-4 gap-2'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2'>
                 <div className='mt-2'>
                   <div className='bg-slate-300 dark:bg-slate-700 rounded-lg h-[200px] w-[400px] animate-pulse'/>
                   <div className='mt-3 h-3 rounded-md w-1/4 bg-slate-300 dark:bg-slate-700  animate-pulse'/>
@@ -167,7 +167,7 @@ const Home = () => {
             ): error ? (
               <div className='bg-red-500 text-white rounded-md p-2'>{error}</div>
             ) : (
-              <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                 {featuredPosts && featuredPosts.map((post)=> (
                   <div key={post.id} className='flex flex-col'>
                     <ProductIndex post={post}/>
@@ -242,7 +242,7 @@ const Home = () => {
               ) : PopularPostsError ? (
                 <div className='bg-red-500 text-white rounded-md p-2'>{PopularPostsError}</div>
               ): (
-                <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2'>
                   {popularPosts && popularPosts.map((post)=> (
                     <div key={post.id} className='flex flex-col'>
                       <ProductIndex post={post} />

@@ -23,7 +23,7 @@ const Login = () => {
   return (
     <AuthLayout>
       {loading }
-      <form className=' mx-5' onSubmit={submitHandler}>
+      <form className='mx-5' onSubmit={submitHandler}>
         {error}
           <div className='mb-5 mt-10'>
             <label className='block mb-2 text-sm font-medium text-secondary dark:text-gray-300'>Email</label>
