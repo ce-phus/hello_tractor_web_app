@@ -4,6 +4,8 @@ import Register from "./Register";
 import Activation from "./Activation";
 import MyProfile from "./MyProfile";
 import EditProfile from "./EditProfile";
+import Explore from "./Explore";
+import PostDetail from "./PostDetail";
 
 export {
     Home,
@@ -11,5 +13,7 @@ export {
     Register,
     Activation,
     MyProfile,
-    EditProfile
+    EditProfile,
+    Explore,
+    PostDetail
 }

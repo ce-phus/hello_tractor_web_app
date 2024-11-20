@@ -26,8 +26,8 @@ class PostFilter(django_filters.FilterSet):
         model = Post
         fields = ['advert_type', 'price', 'model']
 
-class ListAllPostsAPIView(APIView):
-    serialier_class = PostSerializer
+class ListAllPostsAPIView(generics.ListAPIView):
+    serializer_class = PostSerializer
     queryset = Post.objects.all().order_by("-created_at")
     filter_backends = [
         DjangoFilterBackend,

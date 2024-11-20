@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DarkMode from './Darkmode';
 import { useNavigate } from 'react-router-dom';
-import { logo, logo1 } from '../assets';
+import { cart } from '../assets';
 import { getProfile } from '../actions/profileActions';
 
 
@@ -57,6 +57,11 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
             </div>
           </form>
         </div>
+        <div>
+          <img
+          src={cart}
+          className='h-12 w-12'/>
+        </div>
         <DarkMode className="mr-"/>
         <div>
         <Link to={profile ? `/me` : '#'}>
@@ -67,6 +72,7 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
             />
           </Link>
         </div>
+        
       </div>
     </nav>
   );

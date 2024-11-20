@@ -18,8 +18,8 @@ import { Link } from 'react-router-dom';
 
 
 const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
-  // const getProfileReducer = useSelector((state) => state.getProfileReducer);
-  // const { profile } = getProfileReducer
+  const getProfileReducer = useSelector((state) => state.getProfileReducer);
+  const { profile } = getProfileReducer
   const dispatch = useDispatch();
   
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -57,7 +57,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/'
                 className={({ isActive }) =>
-                  `flex text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
+                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <IoHome className='mt-1 w-6 h-6 '/> Home
@@ -66,25 +66,15 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
 
             <li>
               <NavLink
-                to='/explore'
+                to='/posts/explore'
                 className={({ isActive }) =>
-                  `flex gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
+                `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <MdOutlineExplore className='mt-1 w-6 h-6 ' /> Explore
               </NavLink>
             </li>
 
-            <li>
-              <NavLink
-                to='/casts'
-                className={({ isActive }) =>
-                  `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
-                }
-              >
-                <FaVideo className='mt-1 w-6 h-6 ' /> Films
-              </NavLink>
-            </li>
 
             <li>
               <NavLink
@@ -118,7 +108,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
           <ul className='space-y-2 font-medium'>
           <li>
               <NavLink
-                // to={profile ? `/inbox/${profile.username}` : "#"}
+                to={profile ? `/inbox/${profile.username}` : "#"}
                 className={({ isActive }) =>
                   `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }

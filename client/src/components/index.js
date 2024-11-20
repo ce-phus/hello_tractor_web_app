@@ -7,6 +7,7 @@ import ProductIndex from "./ProductIndex";
 import Banner from "./Banner";
 import Footer from "./Footer";
 import ProfilePosts from "./ProfilePosts";
+import Post from "./Post";
 
 export {
     Layout,
@@ -17,5 +18,6 @@ export {
     ProductIndex,
     Banner,
     Footer,
-    ProfilePosts
+    ProfilePosts,
+    Post
 }

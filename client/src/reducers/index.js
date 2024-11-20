@@ -9,7 +9,13 @@ import {
      } from "./userReducer";
 
 import {
-    postIndexReducer
+    postIndexReducer,
+    listAllPostsReducer,
+    createPostReducer,
+    updatePostReducer,
+    deletePostReducer,
+    searchPostReducer,
+    postDetailsReducer,
 } from "./postReducer"
 
 
@@ -21,6 +27,7 @@ import {
     listUserProfileReducer,
     getUserProfileReducer
 } from "./profileReducer";
+
 
 const allReducers = combineReducers({
     userLoginReducer,
@@ -35,6 +42,12 @@ const allReducers = combineReducers({
     topAgentsListReducer,
     listUserProfileReducer,
     getUserProfileReducer,
+    listAllPostsReducer,
+    createPostReducer,
+    updatePostReducer,
+    deletePostReducer,
+    searchPostReducer,
+    postDetailsReducer,
 });
 
 export default allReducers
