@@ -7,6 +7,7 @@ import EditProfile from "./EditProfile";
 import Explore from "./Explore";
 import PostDetail from "./PostDetail";
 import NotFound from "./NotFound";
+import Profile from "./Profile";
 
 export {
     Home,
@@ -17,5 +18,6 @@ export {
     EditProfile,
     Explore,
     PostDetail,
-    NotFound
+    NotFound,
+    Profile
 }

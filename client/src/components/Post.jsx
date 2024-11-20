@@ -3,32 +3,35 @@ import { Link } from 'react-router-dom'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { AiFillMessage } from "react-icons/ai";
 import { FaShareAlt } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 const Post = ({ post }) => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const photos = post.photos || [];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const photos = post.photos || [];
 
-    const API_URL = import.meta.env.VITE_API_URL;
-    const fullImageUrl = API_URL + post.cover_photo;
-    const fullProfileImageUrl = API_URL + post.profile_photo;
+  const { profile } = useSelector((state) => state.getProfileReducer);
 
-    const slides = [fullImageUrl, ...photos.map((photo) => API_URL + photo.photo)];
+  const API_URL = import.meta.env.VITE_API_URL;
+  const fullImageUrl = API_URL + post.cover_photo;
+  const fullProfileImageUrl = API_URL + post.profile_photo;
 
-    const handleNext = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    };
+  const slides = [fullImageUrl, ...photos.map((photo) => API_URL + photo.photo)];
 
-    const handlePrev = () => {
-        setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
-    };
+  const handleNext = () => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+  };
 
-    const formatPrice = (price) => {
-        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'kes' }).format(price);
-    };
+  const handlePrev = () => {
+      setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
+  };
+
+  const formatPrice = (price) => {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'kes' }).format(price);
+  };
 
   return (
     <div className='bg-white dark:bg-dark space-y-3 flex flex-col mx-5 md:mx-0 md:w-[500px]'>
-        <Link>
+        <Link to={profile.username === post.user ? '/me' : `profile/${post.user}`}>
             <div className='flex justify-start space-x-2'>
                 <img
                 src={fullProfileImageUrl}
@@ -108,7 +111,7 @@ const Post = ({ post }) => {
             <span className="text-dark dark:text-white">Price</span> : {formatPrice(post?.price)}
           </p>
 
-          <Link to={`post/${post.slug}`} className='bg-secondary font-medium text-xl dark:bg-white dark:text-secondary group-hover:duration:500 scale-105  text-white rounded-lg p-1.5'>
+          <Link to={`post/${post.slug}`} className='bg-secondary font-medium text-xl dark:bg-white dark:text-secondary hover:scale-105 hover:duration-200   text-white rounded-lg p-1.5'>
             Purchase
           </Link>
         </div>

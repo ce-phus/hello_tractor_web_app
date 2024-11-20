@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 
 const ProductIndex = ({ post }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const photos = post.photos || [];
 
+  const { profile } = useSelector((state) => state.getProfileReducer);
+  
   const API_URL = import.meta.env.VITE_API_URL;
   const fullImageUrl = API_URL + post.cover_photo;
   const fullProfileImageUrl = API_URL + post.profile_photo;
@@ -26,7 +29,7 @@ const ProductIndex = ({ post }) => {
 
   return (
     <div className="mx-4 sm:px-2">
-      <Link to={''}>
+      <Link to={profile.username === post.user ? '/me' : `profile/${post.user}`}>
         <div className="flex justify-start space-x-2">
           <img
             src={fullProfileImageUrl}
