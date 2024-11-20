@@ -119,9 +119,13 @@ def update_post_api_view(request, slug):
 @permission_classes([permissions.IsAuthenticated])
 def create_post_api_view(request):
     user = request.user
-    seller_profile = Profile.objects.get(user=user, is_seller=True)
+    try:
+        seller_profile = Profile.objects.get(user=user, is_seller=True)
+    except Profile.DoesNotExist:
+        return Response({"error": "To create a post user must be a seller"}, status=status.HTTP_403_FORBIDDEN)
+
     data = {
-        "user":user.pkid,
+        "user": user.pkid,
         "title": request.data.get('title'),
         "description": request.data.get("description"),
         "country": request.data.get("country"),
@@ -129,26 +133,24 @@ def create_post_api_view(request):
         "postal_code": request.data.get("postal_code"),
         "street_address": request.data.get("street_address"),
         "price": request.data.get("price"),
-        "advert_type": request.data.get("advert_type")
+        "advert_type": request.data.get("advert_type"),
     }
 
     if 'cover_photo' in request.FILES:
         data['cover_photo'] = request.FILES['cover_photo']
 
     serializer = PostCreateSerializer(data=data)
-    if seller_profile:
-        if serializer.is_valid():
-            post_instance = serializer.save
-            photos = request.FILES.getlist("photos")
-
-            for photo in photos:
-                PostPhoto.objects.create(post=post_instance, photo=photo)
-
-            full_post_data = PostSerializer(post_instance).data
-            return Response(full_post_data, status=status.HTTP_201_CREATED)
+    if serializer.is_valid():
+        post_instance = serializer.save()
+        
+        photos = request.FILES.getlist("photos")
+        for photo in photos:
+            PostPhoto.objects.create(post=post_instance, photo=photo)
+        full_post_data = PostSerializer(post_instance).data
+        return Response(full_post_data, status=status.HTTP_201_CREATED)
     
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    return Response({"error": "To create a post user must be a seller"}, status=status.HTTP_403_FORBIDDEN)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(["DELETE"])
 @permission_classes([permissions.IsAuthenticated])

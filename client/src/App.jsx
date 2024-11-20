@@ -17,6 +17,7 @@ const App = () => {
           <Route path='explore/profile/:username' element={ <Profile /> } exact />
           <Route path="/activate/:uid/:token/" element={<Activation />} exact />
           <Route path="explore/post/:slug/" element={<PostDetail />} exact />
+          <Route path="/post/:slug/" element={<PostDetail />} exact />
           <Route path="*" element={<NotFound />} exact/>
         </Routes>
       </div>

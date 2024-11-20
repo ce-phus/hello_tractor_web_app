@@ -8,7 +8,7 @@ const ProductIndex = ({ post }) => {
   const photos = post.photos || [];
 
   const { profile } = useSelector((state) => state.getProfileReducer);
-  
+
   const API_URL = import.meta.env.VITE_API_URL;
   const fullImageUrl = API_URL + post.cover_photo;
   const fullProfileImageUrl = API_URL + post.profile_photo;
@@ -41,7 +41,7 @@ const ProductIndex = ({ post }) => {
           </p>
         </div>
       </Link>
-      <Link className="flex flex-col text-center bg-white rounded-lg dark:bg-dark sm:p-3 p-0 w-[400px]">
+      <Link to={`post/${post.slug}`} className="flex flex-col text-center bg-white rounded-lg dark:bg-dark sm:p-3 p-0 w-[400px]">
         <div className="w-full relative overflow-hidden">
           {/* Slider Images */}
           <div

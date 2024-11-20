@@ -86,8 +86,6 @@ class PostCreateSerializer(serializers.ModelSerializer):
             "user",
             "title",
             "description",
-            "interior_features",
-            "exterior_features",
             "country",
             "city",
             "postal_code",

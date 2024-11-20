@@ -14,7 +14,7 @@ import { logout } from '../actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { logo, logo1 } from '../assets';
 import { Link } from 'react-router-dom';
-// import Popup from './Popup';
+import Popup from './Popup';
 
 
 const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
@@ -124,7 +124,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
             <p className='text-dark dark:text-gray-400 tracking-wide text-xs uppercase'>New Post</p>
             <li>
               <button
-                // onClick={togglePopup}
+                onClick={togglePopup}
                 className='dark:text-dark text-white flex gap-4 px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 w-full'
               >
                 <LuCross className='mt-1 dark:bg-white bg-dark w-6 h-6 rounded-md'/> 
@@ -168,7 +168,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
           </ul>
         </div>
       </aside>
-      {/* <Popup isPopupOpen={isPopupOpen} togglePopup={togglePopup} /> */}
+      <Popup isPopupOpen={isPopupOpen} togglePopup={togglePopup} />
     </div>
   );
 });

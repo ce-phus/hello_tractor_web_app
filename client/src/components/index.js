@@ -8,6 +8,7 @@ import Banner from "./Banner";
 import Footer from "./Footer";
 import ProfilePosts from "./ProfilePosts";
 import Post from "./Post";
+import Popup from "./Popup";
 
 export {
     Layout,
@@ -19,5 +20,6 @@ export {
     Banner,
     Footer,
     ProfilePosts,
-    Post
+    Post,
+    Popup
 }
