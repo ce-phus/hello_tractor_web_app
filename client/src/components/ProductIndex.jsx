@@ -29,7 +29,7 @@ const ProductIndex = ({ post }) => {
 
   return (
     <div className="mx-4 sm:px-2">
-      <Link to={profile.username === post.user ? '/me' : `profile/${post.user}`}>
+      <Link to={profile?.username === post?.user ? '/me' : `profile/${post?.user}`}>
         <div className="flex justify-start space-x-2">
           <img
             src={fullProfileImageUrl}

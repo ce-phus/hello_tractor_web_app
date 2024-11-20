@@ -87,6 +87,11 @@ export const getUserProfile = (username) => async (dispatch, getState) => {
                 ? error.response.data.detail
                 : error.message,
         });
+        if (error.response.data.detail === "Given token not valid for any token type") {
+            console.log("error response: ",error.response.data.detail)
+            dispatch(logout());
+            
+          }
     }
 };
 

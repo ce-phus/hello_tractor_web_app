@@ -44,6 +44,11 @@ export const getPostIndexList = () => async (dispatch) => {
 
     } catch (error) {
         dispatch({ type: POST_INDEX_FAIL, payload: error.message });
+        if (error.response.data.detail === "Given token not valid for any token type") {
+          console.log("error response: ",error.response.data.detail)
+          dispatch(logout());
+          
+        }
     }
 };
 

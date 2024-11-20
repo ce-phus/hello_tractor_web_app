@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -51,7 +50,6 @@ export const login = (email, password) => async (dispatch) => {
     if (error.response.data.detail === "Given token not valid for any token type") {
       console.log("error response: ",error.response.data.detail)
       dispatch(logout());
-      navigate('/')
     }
   }
 };
