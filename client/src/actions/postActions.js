@@ -198,7 +198,7 @@ export const getPostDetails = (slug) => async (dispatch, getState) => {
         dispatch({ type: POST_DETAILS_REQUEST });
 
 
-        const { data } = await axios.get(`${API_URL}/api/posts/details/${slug}/`);
+        const { data } = await axios.get(`${API_URL}/api/posts/detail/${slug}/`);
 
         // console.log("PropertyDetail", data)
         dispatch({

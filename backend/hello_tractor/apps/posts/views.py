@@ -75,14 +75,14 @@ class PostDetailView(APIView):
     def get(self, request, slug):
         post = Post.objects.get(slug=slug)
 
-        x_forwarded_for = request.Meta.get("HTTP_X_FORWARED_FOR")
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
         if x_forwarded_for:
             ip = x_forwarded_for.split(",")[0]
         else:
-            ip = request.Meta.get("REMOTE_ADDR")
+            ip = request.META.get("REMOTE_ADDR")
 
         if not PostView.objects.filter(post=post, ip=ip).exists():
-            PostView.objects.create(posts=post, ip=ip)
+            PostView.objects.create(post=post, ip=ip)
             post.views +=1
             post.save
 

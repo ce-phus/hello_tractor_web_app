@@ -66,7 +66,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
 
             <li>
               <NavLink
-                to='/posts/explore'
+                to='/explore'
                 className={({ isActive }) =>
                 `flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }

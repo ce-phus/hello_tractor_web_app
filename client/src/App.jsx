@@ -13,9 +13,9 @@ const App = () => {
           <Route path='/register' element={ <Register/> } exact />
           <Route path='/me' element={ <MyProfile /> } exact />
           <Route path='profile/edit' element={ <EditProfile /> } exact />
-          <Route path='posts/explore' element={ <Explore /> } exact />
+          <Route path='/explore' element={ <Explore /> } exact />
           <Route path="/activate/:uid/:token/" element={<Activation />} exact />
-          <Route path="/:slug/" element={<PostDetail />} exact />
+          <Route path="explore/post/:slug/" element={<PostDetail />} exact />
         </Routes>
       </div>
     </Router>

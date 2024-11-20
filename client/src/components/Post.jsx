@@ -108,7 +108,7 @@ const Post = ({ post }) => {
             <span className="text-dark dark:text-white">Price</span> : {formatPrice(post?.price)}
           </p>
 
-          <Link className='bg-secondary dark:bg-white group-hover:duration:500 scale-105  text-white rounded-lg p-1.5'>
+          <Link to={`post/${post.slug}`} className='bg-secondary font-medium text-xl dark:bg-white group-hover:duration:500 scale-105  text-white rounded-lg p-1.5'>
             Purchase
           </Link>
         </div>
