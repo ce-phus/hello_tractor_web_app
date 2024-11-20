@@ -24,6 +24,7 @@ urlpatterns = [
     path("api/auth/", include("djoser.urls")),
     path("api/auth/", include("djoser.urls.jwt")),
     path("api/posts/", include('apps.posts.urls')),
+    path("api/", include('apps.cart.urls')),
     path("api/profile/", include('apps.profiles.urls')),
     path("api/ratings/", include("apps.ratings.urls")),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

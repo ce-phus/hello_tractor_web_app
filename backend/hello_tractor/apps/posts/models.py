@@ -2,6 +2,9 @@ from django.db import models
 import random 
 import string
 
+from django.core.files import File
+from io import BytesIO
+from PIL import Image, ImageFile
 from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
@@ -105,6 +108,25 @@ class Post(TimeStampedUUIDModel):
             random.choices(string.ascii_uppercase + string.digits, k=10)
         )
         super(Post, self).save(*args, **kwargs)
+    
+    def get_thumbnail(self):
+        if self.cover_photo:
+            return self.get_thumbnail.url
+        else:
+            if self.image:
+                self.cover_photo = self.make_thumbnail(self.image)
+                self.save()
+                return self.thumbnail.url
+            else:
+                return ""
+    def make_thumbnail(dels, image, size=(300, 200)):
+        ImageFile.LOAD_TRUNCATED_IMAGES = True
+        img = Image.open(image)
+        img.thumbnail(size)
+        thumb = BytesIO()
+        img.save(thumb, 'JPEG', quality=85)
+        thumbnail = File(thumb, name=image.name)
+        return thumbnail
 
    
 class PostView(TimeStampedUUIDModel):

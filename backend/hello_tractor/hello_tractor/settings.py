@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'apps.posts',
     'apps.profiles',
     'apps.common',
-    'apps.ratings'
+    'apps.ratings',
+    'apps.cart'
 ]
 
 MIDDLEWARE = [
@@ -95,6 +96,7 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = "users.User"
+CART_SESSION_ID = 'cart'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
