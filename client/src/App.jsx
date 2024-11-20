@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Layout } from './components'
-import { Home, Login, Register, Activation, MyProfile, EditProfile, Explore, PostDetail } from './pages'
+import { Home, Login, Register, Activation, MyProfile, EditProfile, Explore, PostDetail, NotFound } from './pages'
 
 const App = () => {
   return (
@@ -16,6 +16,7 @@ const App = () => {
           <Route path='/explore' element={ <Explore /> } exact />
           <Route path="/activate/:uid/:token/" element={<Activation />} exact />
           <Route path="explore/post/:slug/" element={<PostDetail />} exact />
+          <Route path="*" element={<NotFound />} exact/>
         </Routes>
       </div>
     </Router>
