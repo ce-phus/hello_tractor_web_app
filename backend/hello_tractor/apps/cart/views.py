@@ -21,7 +21,7 @@ class CartView(APIView):
                 'title': item['title'],
                 'price': str(item['price']),
                 'quantity': item['quantity'],
-                'url': f'/{item.get('slug')}',
+                'url': item['slug'],
                 'total_price': str(item['total_price']),
                 'cover_photo': item.get('cover_photo'),
             }
@@ -78,7 +78,7 @@ class CartView(APIView):
                 'title': item['title'],
                 'price': str(item['price']),
                 'quantity': item['quantity'],
-                'url': f'/{item.get('slug')}',
+                'url': item['slug'],
                 'total_price': str(item['total_price']),
                 'cover_photo': item.get('cover_photo'),
             })

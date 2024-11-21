@@ -13,6 +13,8 @@ import dashboard from "./dashboard.png"
 import post from "./post.png"
 import close from "./close.svg"
 import cart from "./cart.png"
+import profile_default from "./profile_default.jpg"
+import svg from "./404.svg"
 
 export {
     img,
@@ -29,5 +31,7 @@ export {
     dashboard,
     post,
     close,
-    cart
+    cart,
+    svg,
+    profile_default
 }

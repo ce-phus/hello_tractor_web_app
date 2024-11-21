@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DarkMode from './Darkmode';
 import { useNavigate } from 'react-router-dom';
-import { cart } from '../assets';
+import { cart, profile_default } from '../assets';
 import { getProfile } from '../actions/profileActions';
 
 
@@ -66,7 +66,7 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
         <div>
         <Link to={profile ? `/me` : '#'}>
             <img
-              src={profile?.profile_photo || 'default-profile-image-url'}
+              src={profile?.profile_photo || profile_default}
               className='w-10 h-10 mx-3 rounded-full object-cover'
               alt="Profile"
             />

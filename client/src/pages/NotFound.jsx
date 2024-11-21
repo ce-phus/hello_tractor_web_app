@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { svg } from '../assets'
 
 const NotFound = () => {
   return (
@@ -11,7 +12,7 @@ const NotFound = () => {
             <Link className='text-sm font-bold tracking-wide border px-1.5 py-2 rounded-lg hover:scale-105 duration-200 hover:bg-white hover:text-gray-400 text-black dark:text-white dark:hover:text-black/40' to={'/'}>
                 Back to home
             </Link>
-            <img src='./404.svg' className='w-'/>
+            <img src={svg} className='w-'/>
         </div>
     </div>
   )

@@ -54,7 +54,7 @@ const ProductIndex = ({ post }) => {
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className="md:w-full w-full md:h-[200px] h-[300px] flex-shrink-0"
+                className="md:w-full w-full md:h-[200px] h-[300px]"
               >
                 <img
                   src={slide}

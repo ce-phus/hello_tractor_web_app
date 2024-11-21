@@ -167,7 +167,7 @@ const Home = () => {
             ): error ? (
               <div className='bg-red-500 text-white rounded-md p-2'>{error}</div>
             ) : (
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                 {featuredPosts && featuredPosts.map((post)=> (
                   <div key={post.id} className='flex flex-col'>
                     <ProductIndex post={post}/>
