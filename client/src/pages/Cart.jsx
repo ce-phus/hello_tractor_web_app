@@ -75,8 +75,8 @@ const Cart = () => {
     }
   return (
     <Layout>
-        <div className='max-w-7xl mx-auto pt-10 pb-64 mb-64 dark:text-white'>
-            <h1 className='text-4xl font-bold mb-3'>Your Cart</h1>
+        <div className='max-w-7xl mx-auto pt-10 pb-64 mb-64 dark:text-white mx-10 md:mx-0'>
+            <h1 className='text-4xl font-bold mb-3 mx-10'>Your Cart</h1>
             {loading ? (
                 <div></div>
             ) : error ? (
@@ -138,12 +138,12 @@ const Cart = () => {
                             })}
                         </tbody>
                         </table>
-                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 pb-20 mb-10 text-center'>
+                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 pb-20 mb-10'>
                         <div className='cols-span-2'>
-                            <div className='flex items-center justify-between p-4 rounded-lg w-full'>
+                            <div className='flex items-center justify-between p-4 rounded-lg w-1/2 md:w-full'>
                                 <input type='text' placeholder='Coupon code'
                                 className='py-4 px-2 border rounded-l-lg flex-grow border-gray-400 shadow-md dark:bg-dark dark:text-white'/>
-                                <button className='px-5 py-4 md:py-4 bg-dark dark:bg-white dark:text-dark text-white rounded-r-md hover:bg-dark/55'>Apply Coupon Code</button>
+                                <button className='md:px-5 px-1 py-4 md:py-4 bg-dark dark:bg-white dark:text-dark text-white rounded-r-md hover:bg-dark/55 '>Apply Coupon Code</button>
                             </div>
                         </div>
                         <div className='mt-3'>
@@ -154,7 +154,7 @@ const Cart = () => {
                                     <p className='text-dark mr-12 text-lg font-normal'>Subtotal</p>
                                     <strong className='text-lg'>KES {numberWithCommas(calculateTotalPrice())}</strong>
                                 </div>
-                                <div className='mt-5 mx-3'>
+                                <div className='mt-5 mx-3  md:w-full w-1/2'>
                                     <form onSubmit={handleCheckout}>
                                         <div className='mb-5'>
                                             <label className='block mb-2 text-sm font-medium'>First Name</label>
