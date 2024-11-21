@@ -1,7 +1,7 @@
 import img from "./img.png"
 import img1 from "./img1.png"
 import logo from "./logo7.png"
-import logo1 from "./logo1.jpg"
+import logo1 from "./logo8.png"
 import google from "./google.png"
 import LightButton from './website/light-mode-button.png'
 import DarkButton from './website/dark-mode-button.png'
@@ -15,6 +15,7 @@ import close from "./close.svg"
 import cart from "./cart.png"
 import profile_default from "./profile_default.jpg"
 import svg from "./404.svg"
+import chat from "./chat.png"
 
 export {
     img,
@@ -33,5 +34,6 @@ export {
     close,
     cart,
     svg,
-    profile_default
+    profile_default,
+    chat
 }

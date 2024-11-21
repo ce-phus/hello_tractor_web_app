@@ -90,22 +90,6 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
           <hr className='my-5 border- h-px rounded-full border-gray-300 dark:border-gray-500'/>
 
           <ul className='space-y-2 font-medium'>
-            <p className='text-dark dark:text-gray-400 tracking-wide text-xs uppercase'>Create a Custom Feed</p>
-            <li>
-              <NavLink
-                to='/create'
-                className={({ isActive }) =>
-                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
-                }
-              >
-                <LuCross className='mt-1  w-6 h-6 '/> Create
-              </NavLink>
-            </li>
-          </ul>
-
-          <hr className='my-5 h-px rounded-full border-gray-300 dark:border-gray-500'/>
-
-          <ul className='space-y-2 font-medium'>
           <li>
               <NavLink
                 to={profile ? `/inbox/${profile.username}` : "#"}
@@ -130,6 +114,22 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
                 <LuCross className='mt-1 dark:bg-white bg-dark w-6 h-6 rounded-md'/> 
                 <span className='dark:text-white text-dark'>New Post</span>
               </button>
+            </li>
+          </ul>
+
+          <hr className='my-5 h-px rounded-full border-gray-300 dark:border-gray-500'/>
+
+          <ul className='space-y-2 font-medium'>
+            <p className='text-dark dark:text-gray-400 tracking-wide text-xs uppercase'>Create a Custom Feed</p>
+            <li>
+              <NavLink
+                to='/create'
+                className={({ isActive }) =>
+                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
+                }
+              >
+                <LuCross className='mt-1  w-6 h-6 '/> Create
+              </NavLink>
             </li>
           </ul>
 

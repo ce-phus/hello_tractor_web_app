@@ -53,6 +53,15 @@ INSTALLED_APPS = [
     'apps.cart'
 ]
 
+CHANNEL_LAYERS = {
+    'default': {
+        "BACKEND": "channels_redis.core.RedisChannelLayer", 
+        'CONFIG': {
+            'hosts': [('localhost', 6379)], 
+        }
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',

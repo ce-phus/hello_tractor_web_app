@@ -28,6 +28,18 @@ import {
     getUserProfileReducer
 } from "./profileReducer";
 
+import {
+    cartReducer
+} from "./cartReducer"
+
+import {
+    getUsersReducers
+} from "./chatReducer";
+
+import {
+    websocketReducer
+} from "./websocketReducer"
+
 
 const allReducers = combineReducers({
     userLoginReducer,
@@ -48,6 +60,9 @@ const allReducers = combineReducers({
     deletePostReducer,
     searchPostReducer,
     postDetailsReducer,
+    getUsersReducers,
+    cartReducer,
+    websocket:websocketReducer
 });
 
 export default allReducers

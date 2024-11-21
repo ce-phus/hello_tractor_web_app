@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import ProfilePosts from "./ProfilePosts";
 import Post from "./Post";
 import Popup from "./Popup";
+import ChatUser from "./ChatUser";
 
 export {
     Layout,
@@ -21,5 +22,6 @@ export {
     Footer,
     ProfilePosts,
     Post,
-    Popup
+    Popup,
+    ChatUser
 }

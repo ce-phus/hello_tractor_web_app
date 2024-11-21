@@ -14,7 +14,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 self.channel_name
             )
             await self.accept()
-
         else:
             await self.close()
 

@@ -8,6 +8,7 @@ import Explore from "./Explore";
 import PostDetail from "./PostDetail";
 import NotFound from "./NotFound";
 import Profile from "./Profile";
+import Chat from "./Chat";
 
 export {
     Home,
@@ -19,5 +20,6 @@ export {
     Explore,
     PostDetail,
     NotFound,
-    Profile
+    Profile,
+    Chat
 }
