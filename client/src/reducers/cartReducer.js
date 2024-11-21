@@ -20,6 +20,8 @@ const initialState = {
     cartItems: [],
     loading: false,
     error: null,
+    totalQuantity: 0,
+    totalCost: 0,
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -34,18 +36,18 @@ export const cartReducer = (state = initialState, action) => {
                 error: null,
             };
 
-            case CART_ADD_ITEM_SUCCESS:
-                const newCartItems = action.payload;
+            case CART_ADD_ITEM_SUCCESS: {
+                const newCartItems = action.payload.items; 
             
-                const updatedCartItems = state.cartItems.map(item => {
-                    const newItem = newCartItems.find(i => i.id === item.id);
+                const updatedCartItems = state.cartItems.map((item) => {
+                    const newItem = newCartItems.find((i) => i.id === item.id);
                     return newItem ? { ...item, quantity: newItem.quantity } : item;
                 });
             
                 const finalCartItems = [...updatedCartItems];
             
-                newCartItems.forEach(item => {
-                    if (!finalCartItems.find(i => i.id === item.id)) {
+                newCartItems.forEach((item) => {
+                    if (!finalCartItems.find((i) => i.id === item.id)) {
                         finalCartItems.push(item);
                     }
                 });
@@ -55,9 +57,9 @@ export const cartReducer = (state = initialState, action) => {
                     loading: false,
                     cartItems: finalCartItems,
                 };
+            }
             
-        
-        
+            
         case CART_REMOVE_ITEM_SUCCESS:
             return {
                 ...state,

@@ -40,7 +40,7 @@ class Cart(object):
                 'quantity' : quantity,
                 'price': price,
                 'slug': post.slug,
-                'cover_photo': str(post.thumbnail.url) if post.thumbnail else None
+                'cover_photo': str(post.cover_photo.url) if post.cover_photo else None
             }
         elif update_quantity:
             self.cart[post_id]['quantity'] = quantity

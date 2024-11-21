@@ -8,7 +8,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { FaCarTunnel } from 'react-icons/fa6'
 import { BsCart } from 'react-icons/bs'
 import { getProfile } from '../actions/profileActions'
-
+import { addToCart } from '../actions/cartActions'
 const PostDetail = () => {
     const dispatch = useDispatch();
     const { slug } = useParams();
@@ -43,19 +43,24 @@ const PostDetail = () => {
         setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
     };
 
-    const handleMessage = () => {
+    const handleAddToCart = (postId) => {
         if (profile.username === post.user) {
-            setMessage('You cannot add your own product to cart');
-            setTimeout(()=> {
-                setMessage('')
-            }, 4000)
+          setMessage("You cannot add your own product to the cart");
         } else {
-            setMessage('Item added to cart');
-            setTimeout(()=> {
-                setMessage('')
-            }, 4000)
+          dispatch(addToCart(postId, 1, false));
+          setMessage("Item added to cart");
         }
-    };
+      };
+    
+      // Handle message timeout
+      useEffect(() => {
+        if (message) {
+          const timer = setTimeout(() => {
+            setMessage("");
+          }, 4000);
+          return () => clearTimeout(timer); // Cleanup timer
+        }
+      }, [message]);
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'kes' }).format(price);
@@ -179,10 +184,10 @@ const PostDetail = () => {
                                         </div>
                                     </div>
                                     <div className='mt-1 mb-3 mx-3 flex space-x-5'>
-                                        <button
-                                            onClick={handleMessage}
-                                            className='text-lg font-medium text-white dark:text-white bg-orange-500 p-1.5 rounded-md flex'
-                                        >
+                                    <button
+                                        onClick={() => handleAddToCart(post.id)}
+                                        className="text-lg font-medium text-white dark:text-white bg-orange-500 p-1.5 rounded-md flex"
+                                    >
                                             
                                             {message ? (
                                                 <div className='bg-red-500 text-white p-1.5 rounded-md'>

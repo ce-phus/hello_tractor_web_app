@@ -116,7 +116,7 @@ class Post(TimeStampedUUIDModel):
             if self.image:
                 self.cover_photo = self.make_thumbnail(self.image)
                 self.save()
-                return self.thumbnail.url
+                return self.cover_photo.url
             else:
                 return ""
     def make_thumbnail(dels, image, size=(300, 200)):

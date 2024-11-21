@@ -56,7 +56,7 @@ class CartView(APIView):
         cart = Cart(request)
         post_id = request.data.get('post_id')
         quantity = int(request.data.get('quantity', 1))
-        update = request.ata.get('update_quantity', False)
+        update = request.data.get('update_quantity', False)
 
         try:
             post = Post.objects.get(id=post_id)
@@ -98,6 +98,8 @@ class CartView(APIView):
         print("Request Data: ", request.data)
         cart = Cart(request)
         post_id = request.data.get('post_id')
+
+        print("Current Cart Items: ", cart.cart) 
 
         if not cart.has_post(post_id):
             return Response({"error": "Post Not Found in Cart"}, status=status.HTTP_404_NOT_FOUND)

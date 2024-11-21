@@ -5,6 +5,7 @@ import DarkMode from './Darkmode';
 import { useNavigate } from 'react-router-dom';
 import { cart, profile_default } from '../assets';
 import { getProfile } from '../actions/profileActions';
+import Cart from './Cart';
 
 
 const Header = ({ toggleSidebar, isSidebarOpen }) => {
@@ -58,9 +59,7 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
           </form>
         </div>
         <div>
-          <img
-          src={cart}
-          className='h-12 w-12'/>
+          <Cart />
         </div>
         <DarkMode className="mr-"/>
         <div>

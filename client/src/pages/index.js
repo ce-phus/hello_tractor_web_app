@@ -9,6 +9,7 @@ import PostDetail from "./PostDetail";
 import NotFound from "./NotFound";
 import Profile from "./Profile";
 import Chat from "./Chat";
+import Cart from "./Cart";
 
 export {
     Home,
@@ -21,5 +22,6 @@ export {
     PostDetail,
     NotFound,
     Profile,
-    Chat
+    Chat,
+    Cart
 }
