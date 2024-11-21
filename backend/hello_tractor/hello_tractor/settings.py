@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'daphne',
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,7 +82,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hello_tractor.wsgi.application'
+# WSGI_APPLICATION = 'hello_tractor.wsgi.application'
+ASGI_APPLICATION = 'hello_tractor.asgi.application'
 
 
 # Database
