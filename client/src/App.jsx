@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Layout } from './components'
-import { Home, Login, Register, Activation, MyProfile, EditProfile, Explore, PostDetail, NotFound, Profile, Chat, Cart } from './pages'
+import { Home, Login, Register, Activation, MyProfile, EditProfile, Explore, PostDetail, NotFound, Profile, Chat, Cart, Orders, Checkout } from './pages'
 
 const App = () => {
   return (
@@ -15,6 +15,8 @@ const App = () => {
           <Route path='profile/edit' element={ <EditProfile /> } exact />
           <Route path='/explore' element={ <Explore /> } exact />
           <Route path='/cart' element={ <Cart /> } exact />
+          <Route path='/orders' element={ <Orders /> } exact />
+          <Route path='/checkout' element={ <Checkout /> } exact />
           <Route path='explore/profile/:username' element={ <Profile /> } exact />
           <Route path="/activate/:uid/:token/" element={<Activation />} exact />
           <Route path="/inbox/:username/" element={<Chat />} exact/>

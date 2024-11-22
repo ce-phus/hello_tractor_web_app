@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Layout } from '../components'
+import { Layout, Spinner } from '../components'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import { Link, useNavigate } from 'react-router-dom'
+import { initiatePayment } from '../actions/paymentActions';
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,10 @@ const Cart = () => {
 
     const cartReducer = useSelector((state) => state.cartReducer);
     const { cartItems, loading, error } = cartReducer;
-    console.log("Cart Items: ", cartItems)
+    
+    const paymentReducer = useSelector((state) => state.initiatePaymentReducer);
+    const { paymentData, loading: paymentLoading, error: paymentError } = paymentReducer;
+    console.log("Payment Error: ", paymentError)
 
     const { profile } = useSelector((state)=> state.getProfileReducer)
     const { userInfo } = useSelector((state)=>state.userLoginReducer)
@@ -67,6 +71,7 @@ const Cart = () => {
             phone_number: profile.phone_number || phone_number
         }
         console.log("Order Data: ", orderData);
+        dispatch(initiatePayment({ "order":orderData }))
         navigate('/checkout');
     }
     function numberWithCommas(x) {
@@ -198,7 +203,7 @@ const Cart = () => {
                                         </div>
                                         
                                         <button type='submit' className='py-4 px-4 rounded-lg bg-dark dark:bg-white dark:text-dark font-medium text-white text-lg shadow-md hover:bg-primary/70 disabled:bg-gray-400' >
-                                            {loading ? <Spinner/> : 'Proceed to Checkout'}
+                                            {paymentLoading ? <Spinner/> : 'Proceed to Checkout'}
                                         </button>
                                     </form>
                                    

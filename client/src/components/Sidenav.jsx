@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logo, logo1 } from '../assets';
 import { Link } from 'react-router-dom';
 import Popup from './Popup';
+import { IoBagCheckOutline } from "react-icons/io5";
 
 
 const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
@@ -23,7 +24,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
   const dispatch = useDispatch();
   
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+  const [isDropdownOpen, setIsDropDownOpen] = useState(false)
   
   const handleLogout = () => {
     dispatch(logout()); 
@@ -34,6 +35,9 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
     setIsPopupOpen(!isPopupOpen);
   };
 
+  const toggleDropdown = ()=> {
+    setIsDropDownOpen((prev)=> !prev)
+  }
 
   return (
     <div>
@@ -125,7 +129,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/create'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
+                  `flex dark:text-white gap-4 duration:500 px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <LuCross className='mt-1  w-6 h-6 '/> Create
@@ -141,21 +145,30 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
               <NavLink
                 to='/about'
                 className={({ isActive }) =>
-                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
+                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 duration:500 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
                 }
               >
                 <FcAbout className='mt-1 w-6 h-6 '/> About
               </NavLink>
             </li>
-            <li>
-              <NavLink
+            <li className=''>
+              <button
+              onClick={toggleDropdown}
                 to='/settings'
-                className={({ isActive }) =>
-                  `flex dark:text-white gap-4  px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 ${isActive ? 'bg-accent dark:bg-orange-900' : ''}`
-                }
+                className='flex dark:text-white gap-4 text-sm px-1 py-1.5 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 w-full duration-500'
               >
                 <CiSettings className='mt-1 w-6 h-6 '/> Settings
-              </NavLink>
+              </button>
+              {isDropdownOpen && (
+                <ul className='bg-white dark:bg-dark shadow-lg rounded-lg mt-2 w-40 z-10'>
+                  <NavLink
+                      to='/orders'
+                      className='block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 hover:rounded-lg dark:hover:bg-gray-700'
+                    >
+                      <IoBagCheckOutline className='inline mr-2 w-5 h-5' /> You Orders
+                    </NavLink>
+                </ul>
+              )}
             </li>
             <li>
               <button

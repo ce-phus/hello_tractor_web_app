@@ -40,6 +40,15 @@ import {
     websocketReducer
 } from "./websocketReducer"
 
+import {
+    initiatePaymentReducer,
+    verifyPaymentReducer
+} from "./paymentReducer"
+
+import {
+    getAllOrdersReducer,
+} from './orderReducer'
+
 
 const allReducers = combineReducers({
     userLoginReducer,
@@ -62,6 +71,9 @@ const allReducers = combineReducers({
     postDetailsReducer,
     getUsersReducers,
     cartReducer,
+    initiatePaymentReducer,
+    verifyPaymentReducer,
+    getAllOrdersReducer,
     websocket:websocketReducer
 });
 

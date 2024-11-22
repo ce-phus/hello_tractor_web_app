@@ -6,9 +6,7 @@ const AuthLayout = ({ children }) => {
   return (
     <div className='flex pt-20 min-h-screen container mx-auto pb-20 dark:bg-dark'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4'>
-        <div className='w-full hidden md:block '>
-          <img src={img1} className='rounded-t-lg w-full h-full'/>
-        </div>
+        
         <div>
           <div className='flex space-x-2 mx-2'>
             
@@ -26,6 +24,9 @@ const AuthLayout = ({ children }) => {
           <div className=''>
             {children}
           </div>
+        </div>
+        <div className='w-full hidden md:block '>
+          <img src={img1} className='rounded-t-lg w-full h-full'/>
         </div>
       </div>
     </div>

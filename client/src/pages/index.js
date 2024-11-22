@@ -10,6 +10,8 @@ import NotFound from "./NotFound";
 import Profile from "./Profile";
 import Chat from "./Chat";
 import Cart from "./Cart";
+import Orders from "./Orders";
+import Checkout from "./Checkout";
 
 export {
     Home,
@@ -23,5 +25,7 @@ export {
     NotFound,
     Profile,
     Chat,
-    Cart
+    Cart,
+    Orders,
+    Checkout
 }
