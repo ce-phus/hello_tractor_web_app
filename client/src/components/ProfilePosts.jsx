@@ -61,12 +61,13 @@ const ProfilePosts = ({ posts }) => {
                     >
                       {slides.map((slide, index) => (
                         <div
-                          key={index}
-                          className="w-full md:h-[900px] h-[400px]"
-                        >
+                        key={index}
+                        className="w-full h-[800px]"
+                        style={{ flex: '0 0 auto' }}
+                      >
                           <img
                             src={slide}
-                            className="object-cover w-full h-full rounded-lg "
+                            className="object-cover w-full h-full rounded-lg max-w-[900px]"
                             alt={`Slide ${index + 1}`}
                           />
                         </div>

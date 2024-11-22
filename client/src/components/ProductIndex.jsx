@@ -41,9 +41,8 @@ const ProductIndex = ({ post }) => {
           </p>
         </div>
       </Link>
-      <Link to={`post/${post.slug}`} className="flex flex-col text-center bg-white rounded-lg dark:bg-dark sm:p-3 p-0 w-[400px]">
+      <div className="flex flex-col text-center bg-white rounded-lg dark:bg-dark sm:p-3 p-0 w-[430px]">
         <div className="w-full relative overflow-hidden">
-          {/* Slider Images */}
           <div
             className="flex transition-transform duration-500"
             style={{
@@ -53,19 +52,19 @@ const ProductIndex = ({ post }) => {
           >
             {slides.map((slide, index) => (
               <div
-                key={index}
-                className="md:w-full w-full md:h-[200px] h-[300px]"
-              >
+              key={index}
+              className="w-full"
+              style={{ flex: '0 0 auto' }}
+            >
                 <img
                   src={slide}
-                  className="object-cover w-full h-full rounded-lg "
+                  className="object-cover w-full h-full md:h-[300px] rounded-lg max-w-[500px]"
                   alt={`Slide ${index + 1}`}
                 />
               </div>
             ))}
           </div>
 
-          {/* Navigation Buttons */}
           <button
             className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black"
             onClick={handlePrev}
@@ -79,7 +78,6 @@ const ProductIndex = ({ post }) => {
             <BsChevronCompactRight size={24} />
           </button>
 
-          {/* Dots Navigation */}
           <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
             {slides.map((_, index) => (
               <button
@@ -92,7 +90,7 @@ const ProductIndex = ({ post }) => {
             ))}
           </div>
         </div>
-        <div className="p-4 text-left">
+        <Link  to={`post/${post.slug}`} className="p-4 text-left">
           <p className="text-lg font-semibold dark:text-white">
             {post.title || 'Product Title'}
           </p>
@@ -102,8 +100,8 @@ const ProductIndex = ({ post }) => {
           <p className="text-lg font-medium text-gray-600 dark:text-gray-400 mb-2">
             <span className="text-dark dark:text-white">Price</span> : {formatPrice(post?.price)}
           </p>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };

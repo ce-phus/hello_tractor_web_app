@@ -44,7 +44,7 @@ const Sidenav = forwardRef(({ isSidebarOpen }, ref) => {
       <aside
         id='logo-sidebar'
         ref={ref}
-        className={`fixed top-5 m-3 rounded-lg left-0 z-50 w-64 h-screen md:h-[920px]  pt-10 transition-transform bg-white border border-gray-300 sm:translate-x-0 dark:bg-dark dark:border-gray-700 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} mt-4`}
+        className={`fixed top-5 md:mx-3 rounded-lg left-0 z-50 w-64 h-screen md:h-[920px]  pt-10 transition-transform bg-white border border-gray-300 sm:translate-x-0 dark:bg-dark dark:border-gray-700 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} mt-4`}
         aria-label='Sidebar'
         role="navigation"
       >

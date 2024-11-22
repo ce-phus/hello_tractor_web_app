@@ -105,26 +105,28 @@ const PostDetail = () => {
                             </Link>
                             <div className='flex flex-col md:flex-row space-x-5 space-y-5'>
                                 <div className="w-full relative overflow-hidden mt-2 md:w-[600px]">
-                                    {/* Slider Images */}
                                     <div
                                         className="flex transition-transform duration-500"
                                         style={{
-                                            transform: `translateX(-${currentSlide * 100}%)`,
-                                            width: `${slides.length * 100}%`,
+                                        transform: `translateX(-${currentSlide * 100}%)`,
+                                        width: `${slides.length * 100}%`,
                                         }}
                                     >
                                         {slides.map((slide, index) => (
-                                            <div key={index} className="md:w-full w-full md:h-[500px] h-[300px]">
-                                                <img
-                                                    src={slide}
-                                                    className="object-cover w-full h-full rounded-lg"
-                                                    alt={`Slide ${index + 1}`}
-                                                />
-                                            </div>
+                                        <div
+                                        key={index}
+                                        className="w-full max-h-[600px] "
+                                        style={{ flex: '0 0 auto' }}
+                                        >
+                                            <img
+                                            src={slide}
+                                            className="object-cover w-full h-full rounded-lg max-w-[600px]"
+                                            alt={`Slide ${index + 1}`}
+                                            />
+                                        </div>
                                         ))}
                                     </div>
 
-                                    {/* Navigation Buttons */}
                                     <button
                                         className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black"
                                         onClick={handlePrev}
@@ -138,7 +140,6 @@ const PostDetail = () => {
                                         <BsChevronCompactRight size={24} />
                                     </button>
 
-                                    {/* Dots Navigation */}
                                     <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
                                         {slides.map((_, index) => (
                                             <button
