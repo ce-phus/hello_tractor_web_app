@@ -19,16 +19,20 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from apps.chats.views import get_user_list
+from apps.order.views import admin_order_pdf
 
 urlpatterns = [
+    path('admin/admin_order_pdf/<int:order_id>/', admin_order_pdf, name='admin_order_pdf'),
     path('admin/', admin.site.urls),
     path("api/auth/", include("djoser.urls")),
     path("api/auth/", include("djoser.urls.jwt")),
+    path("api/", include('apps.cart.urls')),
     path('api/users/', get_user_list, name='users'),
     path("api/posts/", include('apps.posts.urls')),
-    path("api/", include('apps.cart.urls')),
+    path('api/order/', include('apps.order.urls')),
     path("api/profile/", include('apps.profiles.urls')),
     path("api/ratings/", include("apps.ratings.urls")),
+    path('api/payments/', include('apps.payments.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

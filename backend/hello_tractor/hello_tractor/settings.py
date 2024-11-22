@@ -12,10 +12,17 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+ENV_FILE = BASE_DIR / '.env'
 
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env(ENV_FILE)
+PAYSTACK_SECRET_KEY= env("PAYSTACK_SECRET_KEY")
+PAYSTACK_PUBLIC_KEY= env("PAYSTACK_PUBLIC_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -50,7 +57,9 @@ INSTALLED_APPS = [
     'apps.profiles',
     'apps.common',
     'apps.ratings',
-    'apps.cart'
+    'apps.cart',
+    'apps.payments',
+    'apps.order'
 ]
 
 CHANNEL_LAYERS = {
