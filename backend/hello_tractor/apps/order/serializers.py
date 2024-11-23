@@ -28,6 +28,7 @@ class OrderListSerializer(serializers.ModelSerializer):
             'id', 
             'user',
             'first_name',
+            'created_at',
             'last_name',
             'email',
             'country',
