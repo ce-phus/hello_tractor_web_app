@@ -72,9 +72,7 @@ class Post(TimeStampedUUIDModel):
     price = models.DecimalField(
         verbose_name=_("Price"), max_digits=12, decimal_places=2, default=0.0
     )
-    plot_area = models.DecimalField(
-        verbose_name=_("Plot Area(m^2)"), max_digits=8, decimal_places=2, default=0.0
-    )
+    
     advert_type = models.CharField(
         verbose_name=_("Advert Type"),
         max_length=50,

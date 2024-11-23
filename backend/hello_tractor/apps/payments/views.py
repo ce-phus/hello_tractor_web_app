@@ -36,15 +36,17 @@ class InitiatePaymentView(views.APIView):
             first_name=order_data.get('first_name', user.first_name),
             last_name = order_data.get('last_name', user.last_name),
             email=order_data.get('email', user.email),
-            phone_number = order_data.get('phone_number', user.post.phone_number),
-            country = order_data.get('country', user.post.country),
-            street_address = order_data.get('street_address', user.post.street_address),
-            postal_code = order_data.get('postal_code', user.post.postal_code)
+            phone_number = order_data.get('phone_number', user.profile.phone_number),
+            country = order_data.get('country', user.profile.country),
+            street_address = order_data.get('street_address', user.profile.street_address),
+            postal_code = order_data.get('postal_code', user.profile.postal_code),
+            paid_amount=0.0
         )
         print(f"Order created with ID: {order.id}")
 
+        total_cost = 0
         for item in cart_items:
-            post_instance =get_object_or_404(Post, pk=item['id'])
+            post_instance =get_object_or_404(Post, id=item['id'])
             quantity= item['quantity']
             total_price = float(post_instance.price) * quantity
             total_cost +=total_price
@@ -52,11 +54,13 @@ class InitiatePaymentView(views.APIView):
             OrderItem.objects.create(
                 order=order,
                 post=post_instance,
-                print=post_instance.price,
+                price=post_instance.price,
                 quantity=quantity
             )
         order.total_cost = total_cost
+        order.paid_amount=total_cost
         order.save()
+        print("Order Id: ", order.id)
 
         payment = Payment.objects.create(
             amount=total_cost,
@@ -64,6 +68,8 @@ class InitiatePaymentView(views.APIView):
             user=user,
             order=order
         )
+
+        print("Payment Created: ", payment.id)
 
         return Response({
             'order': {

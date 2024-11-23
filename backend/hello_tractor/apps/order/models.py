@@ -7,17 +7,18 @@ from django_countries.fields import CountryField
 from apps.posts.models import Post
 
 from apps.common.models import TimeStampedUUIDModel
+import uuid
 
 User=get_user_model()
 
-class Order(TimeStampedUUIDModel):
+class Order(models.Model):
     class StatusChoices(models.TextChoices):
         ORDERED = 'ordered', _("ordered")
         SHIPPED = 'shipped', _("shipped")
         DELIVERED = 'delivered', _("delivered")
 
     user = models.ForeignKey(User, related_name='orders', on_delete=models.SET_NULL, blank=True, null=True)
-
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
@@ -27,6 +28,8 @@ class Order(TimeStampedUUIDModel):
     country = CountryField(
         verbose_name=_("Country"), default="KE", blank=False, null=False
     )
+
+    created_at = models.DateTimeField(auto_now_add=True)
     city = models.CharField(
         verbose_name=_("City"),
         max_length=180,
@@ -58,9 +61,10 @@ class Order(TimeStampedUUIDModel):
         return'%s' % self.first_name
     
     def get_total_quantity(self):
-        return sum(int(item.quantity) for item in self.items.all)
+        return sum(int(item.quantity) for item in self.items.all())
     
-class OrderItem(TimeStampedUUIDModel):
+class OrderItem(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     order =models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
     post = models.ForeignKey(Post, related_name='items', on_delete=models.DO_NOTHING)
     price = models.FloatField()

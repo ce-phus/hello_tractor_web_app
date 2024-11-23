@@ -54,6 +54,14 @@ class Profile(TimeStampedUUIDModel):
         blank=False,
         null=False,
     )
+
+    postal_code = models.CharField(
+        verbose_name=_("Postal Code"), max_length=100, default="140"
+    )
+    street_address = models.CharField(
+        verbose_name=_("Street Address"), max_length=150, default="Aventh Avenue"
+    )
+    
     is_buyer = models.BooleanField(
         verbose_name=_("Buyer"),
         default=False,

@@ -41,7 +41,9 @@ class ProfileSerializer(serializers.ModelSerializer):
             "twitter_url",
             "instagram_url",
             "threads_url",
-            "posts"
+            "posts",
+            "postal_code",
+            "street_address"
         ]
 
     def get_full_name(self, obj):
@@ -78,6 +80,8 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "twitter_url",
             "instagram_url",
             "threads_url",
+            "postal_code",
+            "street_address"
 
         ]
 

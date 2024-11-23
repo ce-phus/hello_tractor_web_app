@@ -23,7 +23,7 @@ export const initiatePayment = (orderData) => async (dispatch, getState) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.access}`,
       },
-      withCredentials: true,
+      // withCredentials: true,
     };
 
     const { data } = await axios.post(`${API_URL}/api/payments/initiate-payment/`, orderData, config);
