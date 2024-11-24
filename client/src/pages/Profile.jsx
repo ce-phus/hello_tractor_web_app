@@ -68,7 +68,7 @@ const Profile = () => {
                     </div>
                     </div>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3   mt-5'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  mt-5'>
                         <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
                         <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
                         <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
