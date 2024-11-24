@@ -100,3 +100,10 @@ class PostViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostView
         exclude = ["updated_at", "pkid"]
+
+class PostSearchSerializer(serializers.Serializer):
+    advert_type = serializers.ChoiceField(choices=Post.AdvertType.choices, required=False)
+    model = serializers.CharField(required=False)
+    title = serializers.CharField(required=False)
+    price = serializers.CharField(required=False)
+    catch_phrase = serializers.CharField(required=False)

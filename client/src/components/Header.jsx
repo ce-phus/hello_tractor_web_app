@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DarkMode from './Darkmode';
 import { useNavigate } from 'react-router-dom';
-import { cart, profile_default } from '../assets';
+import { profile_default } from '../assets';
 import { getProfile } from '../actions/profileActions';
 import Cart from './Cart';
 
-
 const Header = ({ toggleSidebar, isSidebarOpen }) => {
+  const [searchQuery, setSearchQuery] = useState('');
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const getProfileReducer = useSelector((state) => state.getProfileReducer);
   const { profile } = getProfileReducer
   console.log('Profile Photo: ', profile?.profile_photo)
@@ -17,6 +18,13 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
   useEffect(()=> {
     dispatch(getProfile())
 }, [dispatch])
+
+const handleSearchSubmit = (e) => {
+  e.preventDefault(); 
+  if (searchQuery.trim()) {
+    navigate(`/search?query=${searchQuery}`);
+  }
+};
   
   return (
     <nav className='fixed z-20 w-full bg-white border-b dark:bg-dark  border-transparent flex items-center justify-between'>
@@ -41,7 +49,7 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
 
       <div className="flex items-center mx-3 pt-2">
         <div className="md:w-[500px] mr-2">
-          <form className="max-w-lg mx-auto">
+          <form className="max-w-lg mx-auto" onSubmit={handleSearchSubmit}>
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div className="relative">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -52,6 +60,8 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
               <input
                 type="search"
                 id="default-search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="block w-full p- ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search Listings......"
                 required

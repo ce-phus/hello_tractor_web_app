@@ -13,6 +13,7 @@ import Cart from "./Cart";
 import Orders from "./Orders";
 import Checkout from "./Checkout";
 import PaymentVerification from "./PaymentVerification";
+import SearchPage from "./SearchPage";
 
 export {
     Home,
@@ -29,5 +30,6 @@ export {
     Cart,
     Orders,
     Checkout,
-    PaymentVerification
+    PaymentVerification,
+    SearchPage
 }

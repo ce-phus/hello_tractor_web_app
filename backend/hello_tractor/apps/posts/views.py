@@ -8,8 +8,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .exceptions import PostNotFound
 from .models import Post, PostPhoto, PostView
-from .serializers import PostSerializer, PostCreateSerializer, PostViewSerializer
+from .serializers import PostSerializer, PostCreateSerializer, PostViewSerializer, PostSearchSerializer
 from apps.profiles.models import Profile
+
 
 class PostFilter(django_filters.FilterSet):
     advert_type = django_filters.CharFilter(
@@ -178,36 +179,40 @@ class PostSearchAPIView(APIView):
     serializer_class = PostCreateSerializer
 
     def post(self, request):
-        queryset = Post.objects.filter(seller=True)
-        data = self.request.data
+        serializer = PostSearchSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = serializer.validated_data
 
-        advert_type = data['advert_type']
-        queryset = queryset.filter(advert_type__iexact = advert_type)
+        queryset = Post.objects.filter(is_featured=True)
 
-        model = data['model']
-        queryset = queryset.filter(model__iexact = model)
+        advert_type = data.get('advert_type')
+        if advert_type:
+            queryset = queryset.filter(advert_type__iexact=advert_type)
 
-        price = data["price"]
-        if price == "$0":
-            price = 0
-        elif price == "$50000":
-            price = 50000
-        elif price == "$100,000+":
-            price = 100000
-        elif price == "$200,000+":
-            price = 200000
-        elif price == "$400,000+":
-            price = 400000
-        elif price == "$600,000+":
-            price = 600000
-        elif price == "Any":
-            price = -1
+        model = data.get('model')
+        if model:
+            queryset = queryset.filter(model__iexact=model)
 
-        if price != -1:
-            queryset = queryset.filter(price__gte=price)
+        
 
-        catch_phrase = data["catch_phrase"]
-        queryset = queryset.filter(description__icontains=catch_phrase)
+        price = data.get("price")
+        if price:
+            price_map = {
+                "$0": 0,
+                "50000": 50000,
+                "100,000+": 100000,
+                "200,000+": 200000,
+                "400,000+": 400000,
+                "600,000+": 600000,
+                "Any": None, 
+            }
+            price_value = price_map.get(price)
+            if price_value is not None:
+                queryset = queryset.filter(price__gte=price_value)
+
+        catch_phrase = data.get("catch_phrase")
+        if catch_phrase:
+            queryset = queryset.filter(description__icontains=catch_phrase)
 
         serializer = PostSerializer(queryset, many=True)
         return Response(serializer.data)
