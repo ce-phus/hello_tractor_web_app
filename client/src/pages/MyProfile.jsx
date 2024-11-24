@@ -35,7 +35,39 @@ const MyProfile = () => {
    <Layout>
     <div className='flex flex-col justify-center md:mx-10 '>
                 {loading ? (
-                    <div></div>
+                    <>
+                    <div className='flex flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0 mx-3 bg-white dark:bg-dark shadow max-w-6xl mx-auto rounded-lg'>
+                    <div className='space-y-3'>
+                        <div className='rounded-full w-[200px] h-[200px] animate-pulse bg-slate-300 dark:bg-slate-800'/>
+                            <div className='flex space-x-2'>
+                                <div className='rounded-lg w-10 h-10 bg-slate-300 dark:bg-slate-700 animate-pulse'/>
+                                <div className='rounded-lg w-10 h-10 bg-slate-300 dark:bg-slate-700 animate-pulse'/>
+                                <div className='rounded-lg w-10 h-10 bg-slate-300 dark:bg-slate-700 animate-pulse'/>
+                                <div className='rounded-lg w-10 h-10 bg-slate-300 dark:bg-slate-700 animate-pulse'/>
+                            </div>
+                    </div>
+                    <div className='space-y-3'>
+                        <div className='flex space-x-2'>
+                            <div className='h-3 w-1/4 rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                            <div className='h-7 w-[100px] rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                        </div>
+                        <div className='h-3 w-1/2 rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                        <div className='h-3 w-1/4 rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse'/>                    
+                        <div className='h-3 w-1/4 rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse'/>                    
+                        <div className='h-3 w-1/4 rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse'/>                    
+                        <div className='h-3 w-1/4 rounded-lg bg-slate-300 dark:bg-slate-800 animate-pulse'/>                    
+                    </div>
+                    </div>
+
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  mt-5'>
+                        <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                        <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                        <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                        <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                        <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                        <div className='w-[500px] h-[300px] bg-slate-300 dark:bg-slate-800 animate-pulse'/>
+                    </div>
+                </>
                 ) : error}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2 bg-transparent dark:bg-dark shadow max-w-5xl mx-auto rounded-lg pb-20'>
                     <div className='space-y-3'>
