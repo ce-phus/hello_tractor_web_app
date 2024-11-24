@@ -86,7 +86,7 @@ const Cart = () => {
                 <div></div>
             ) : error ? (
                 <div className='bg-red-600 text-white p-1.5 rounded-lg'>
-                    {error.message || "An error occurred while deleting."}
+                    {error || "An error occurred while deleting."}
                 </div>
             ) :
                 cartItems.length === 0 ? (

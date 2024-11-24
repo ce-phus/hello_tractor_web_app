@@ -12,6 +12,7 @@ import Chat from "./Chat";
 import Cart from "./Cart";
 import Orders from "./Orders";
 import Checkout from "./Checkout";
+import PaymentVerification from "./PaymentVerification";
 
 export {
     Home,
@@ -27,5 +28,6 @@ export {
     Chat,
     Cart,
     Orders,
-    Checkout
+    Checkout,
+    PaymentVerification
 }

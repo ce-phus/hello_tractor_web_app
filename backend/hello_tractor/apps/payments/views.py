@@ -91,7 +91,7 @@ class VerifyPaymentView(views.APIView):
 
             if verified:
                 order=get_object_or_404(Order, id=payment.order_id)
-                order.paid = True,
+                order.paid = True
                 order.save()
 
                 order_info = {

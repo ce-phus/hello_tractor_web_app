@@ -3,7 +3,7 @@ import requests
 
 class Paystack:
     PAYSTACK_SK = settings.PAYSTACK_SECRET_KEY
-    base_url = 'https://api/paystack.co/'
+    base_url = 'https://api.paystack.co/'
 
     def verify_payment(self, ref, *args, **kwargs):
         path = f'transaction/verify/{ref}'
