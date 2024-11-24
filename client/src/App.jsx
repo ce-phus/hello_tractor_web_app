@@ -18,6 +18,7 @@ const App = () => {
           <Route path='/orders' element={ <Orders /> } exact />
           <Route path='/checkout' element={ <Checkout /> } exact />
           <Route path='explore/profile/:username' element={ <Profile /> } exact />
+          <Route path='/profile/:username' element={ <Profile /> } exact />
           <Route path="/activate/:uid/:token/" element={<Activation />} exact />
           <Route path="/inbox/:username/" element={<Chat />} exact/>
           <Route path="explore/post/:slug/" element={<PostDetail />} exact />

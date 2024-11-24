@@ -52,10 +52,17 @@ export const verifyPayment = (ref) => async (dispatch, getState) => {
       userLoginReducer: { userInfo },
     } = getState();
 
+    if (!userInfo?.access) {
+      throw new Error("User is not authenticated. Missing access token.");
+    }
+
+
     const config = {
       headers: {
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.access}`,
       },
+      // withCredentials: true,
     };
 
     const { data } = await axios.get(`${API_URL}/api/payments/verify-payment/${ref}/`, config);

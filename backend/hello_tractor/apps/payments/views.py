@@ -84,12 +84,17 @@ class VerifyPaymentView(views.APIView):
     permission_classes=[IsAuthenticated]
 
     def get(self, request, ref):
+        print("Authorization header:", request.headers.get("Authorization"))
+        print(f"Received ref: {ref}")
         try:
             cart = Cart(request)
             payment = get_object_or_404(Payment, ref=ref)
+            print(f"Payment retrieved: {payment}")
             verified = payment.verify_payment()
+            print(f"Payment verification result: {verified}")
 
             if verified:
+                print(f"Payment verified successfully for ref: {payment.ref}")
                 order=get_object_or_404(Order, id=payment.order_id)
                 order.paid = True
                 order.save()
@@ -103,7 +108,10 @@ class VerifyPaymentView(views.APIView):
 
                 return Response({
                     'placed_order': order_info,
-                    'payment': PaymentDetailSerializer(payment).data
+                    'payment': {
+                        **PaymentDetailSerializer(payment).data,
+                        'payment_status': 'Verified'  
+                    }
                 }, status=status.HTTP_200_OK)
             
             return Response({

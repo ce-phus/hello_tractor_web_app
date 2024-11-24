@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const AuthLayout = ({ children }) => {
   return (
     <div className='flex pt-20 min-h-screen pb-20 dark:bg-dark'>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 container mx-auto'>
         
-        <div>
+        <div className=''>
           <div className='flex space-x-2 mx-2'>
             
             <img src={logo} className='w-[200px]'/>

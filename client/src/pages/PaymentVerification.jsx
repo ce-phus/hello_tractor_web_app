@@ -4,12 +4,14 @@ import { Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { clearCart } from '../actions/cartActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { Layout } from '../components'
 
 const PaymentVerification = () => {
     const { ref } = useParams()
     const dispatch = useDispatch()
 
-    const { loading, error, verificationData } = useSelector((state)=>state.verifyPaymentReducer);
+    const { loading, error, verificationData } = useSelector((state) => state.verifyPaymentReducer);
+    
 
     useEffect(()=>{
         if (ref) {
@@ -23,7 +25,8 @@ const PaymentVerification = () => {
         }
     }, [dispatch, verificationData]);
   return (
-    <div className='container mx-auto pt-10 dark:text-white'>
+    <Layout>
+         <div className='container mx-auto pt-10 dark:text-white dark:bg-dark'>
         {loading ? (
             <Spinner />
         ) : error ? (
@@ -45,6 +48,8 @@ const PaymentVerification = () => {
             </div>
         ) : null}
     </div>
+    </Layout>
+   
   )
 }
 
