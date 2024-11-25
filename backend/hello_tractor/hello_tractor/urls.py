@@ -32,6 +32,7 @@ urlpatterns = [
     path('api/order/', include('apps.order.urls')),
     path("api/profile/", include('apps.profiles.urls')),
     path("api/ratings/", include("apps.ratings.urls")),
+    path("api/v1/comments/", include("apps.comments.urls")),
     path('api/payments/', include('apps.payments.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

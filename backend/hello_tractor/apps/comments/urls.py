@@ -4,7 +4,7 @@ from .views import PostCommentViewSet
 
 # Create a router and register the viewsets with it
 router = DefaultRouter()
-router.register(r'property-comments', PostCommentViewSet, basename='postcomment')
+router.register(r'post-comments', PostCommentViewSet, basename='postcomment')
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
