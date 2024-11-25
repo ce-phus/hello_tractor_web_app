@@ -15,7 +15,8 @@ from channels.auth import AuthMiddlewareStack
 from apps.chats.routing import websocket_urlpatterns
 from apps.chats.channels_middleware import JWTWebsocketMiddleware
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hello_tractor.settings')
+settings_module = 'hello_tractor.deployment_settings' if 'RENDER_EXTERNAL_HOSTNAME' in os.environ else 'hello_tractor.settings'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
