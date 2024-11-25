@@ -32,7 +32,8 @@ import {
 
 } from "../constants/index"
 
-const API_URL = import.meta.env.VITE_API_URL;
+const isDevelopment = import.meta.env.MODE ==='development'
+const API_URL =  isDevelopment ? import.meta.env.VITE_API_URL : import.meta.env.VITE_API_BASE_URL_DEPLOY
 
 export const getPostIndexList = () => async (dispatch) => {
     try {

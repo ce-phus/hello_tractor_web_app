@@ -8,7 +8,8 @@ const ChatUser = ({ user }) => {
   const handleUserClick = () => {
     dispatch(setActiveChat(user));
   };
-  const API_URL = import.meta.env.VITE_API_URL;
+  const isDevelopment = import.meta.env.MODE ==='development'
+  const API_URL =  isDevelopment ? import.meta.env.VITE_API_URL : import.meta.env.VITE_API_BASE_URL_DEPLOY
   const fullProfileImageUrl = API_URL + user.profile.profile_photo;
 console.log("User profile photo: ", user.profile.profile_photo)
   return (

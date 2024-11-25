@@ -11,7 +11,8 @@ const ProfilePosts = ({ posts }) => {
 
   const photos = posts.photos || [];
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const isDevelopment = import.meta.env.MODE ==='development'
+  const API_URL =  isDevelopment ? import.meta.env.VITE_API_URL : import.meta.env.VITE_API_BASE_URL_DEPLOY
   const fullImageUrl = API_URL + posts.cover_photo;
   const fullProfileImageUrl = API_URL + posts.profile_photo;
 

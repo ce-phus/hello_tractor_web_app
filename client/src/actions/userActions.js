@@ -18,7 +18,8 @@ import {
   USER_RESET_PASSWORD_CONFIRM_SUCCESS
 } from "../constants/index"
 
-const API_URL = import.meta.env.VITE_API_URL;
+const isDevelopment = import.meta.env.MODE ==='development'
+const API_URL =  isDevelopment ? import.meta.env.VITE_API_URL : import.meta.env.VITE_API_BASE_URL_DEPLOY
 console.log('API_URL:', API_URL);
 
 // login

@@ -9,7 +9,8 @@ const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const API_URL  = import.meta.env.VITE_API_URL
+    const isDevelopment = import.meta.env.MODE ==='development'
+    const API_URL =  isDevelopment ? import.meta.env.VITE_API_URL : import.meta.env.VITE_API_BASE_URL_DEPLOY
 
     const cartReducer = useSelector((state) => state.cartReducer);
     const { cartItems, loading, error } = cartReducer;

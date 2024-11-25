@@ -11,7 +11,8 @@ const Post = ({ post }) => {
 
   const { profile } = useSelector((state) => state.getProfileReducer);
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const isDevelopment = import.meta.env.MODE ==='development'
+  const API_URL =  isDevelopment ? import.meta.env.VITE_API_URL : import.meta.env.VITE_API_BASE_URL_DEPLOY
   const fullImageUrl = API_URL + post.cover_photo;
   const fullProfileImageUrl = API_URL + post.profile_photo;
 

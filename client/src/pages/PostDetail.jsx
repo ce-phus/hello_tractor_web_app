@@ -29,7 +29,8 @@ const PostDetail = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const photos = post?.photos || [];
 
-    const API_URL = import.meta.env.VITE_API_URL;
+    const isDevelopment = import.meta.env.MODE ==='development'
+    const API_URL =  isDevelopment ? import.meta.env.VITE_API_URL : import.meta.env.VITE_API_BASE_URL_DEPLOY
     const fullImageUrl = API_URL + post.cover_photo;
     const fullProfileImageUrl = API_URL + post.profile_photo;
 
