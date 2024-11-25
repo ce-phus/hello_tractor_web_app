@@ -91,7 +91,6 @@ const MyProfile = () => {
                         </div>
                     </div>
                     <div className='dark:text-white mt-5 mx-3'>
-                        {/* {loggedInUserId && loggedInUserId === profile.id && ( */}
                             <Link to={`/profile/edit`} className='mb-3'>
                                 <button className='font-medium tracking-wide bg-gray-200 w-1/2 py-1.5 rounded-lg hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700'>
                                     Edit Profile
