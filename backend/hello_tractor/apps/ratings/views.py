@@ -13,7 +13,7 @@ User = get_user_model()
 @api_view(["POST"])
 @permission_classes([permissions.IsAuthenticated])
 def create_agent_review(request, profile_id):
-    agent_profile = Profile.objects.get(id=profile_id, is_seller=True)
+    agent_profile = Profile.objects.get(id=profile_id)
     data = request.data
 
     profile_user = User.objects.get(pkid=agent_profile.user.pkid)
