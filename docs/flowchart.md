@@ -1,5 +1,6 @@
 ## Hello Tractor Flow Chart
 
+
 ```mermaid
 flowchart TD
     start([User Accesses the Platform])
@@ -16,8 +17,8 @@ flowchart TD
     subgraph UserRegistration
         E[User Registration]
         E --> E1[Secure Sign-Up with Djoser]
-        E1 --> E2[Email Verification \(Mailtrap\)]
-        E --> E3[Easy Onboarding for Buyers & Sellers]
+        E1 --> E2[Email Verification with Mailtrap]
+        E --> E3[Easy Onboarding for Buyers and Sellers]
     end
 
     Homepage --> UserRegistration
@@ -26,20 +27,20 @@ flowchart TD
         F[Sellers Create Listings]
         F --> F1[Upload Photos]
         F --> F2[Add Specifications]
-        F --> F3[Enter Location & Asking Price]
+        F --> F3[Enter Location and Asking Price]
     end
 
     UserRegistration --> TractorListings
 
     subgraph ProfileSection
         G[Profile Section]
-        G --> G1[Sellers' Details]
+        G --> G1[Sellers Details]
         G1 --> G2[License Number]
         G1 --> G3[Profile Photo]
         G1 --> G4[Gender]
         G1 --> G5[Social Accounts]
 
-        G --> G6[Buyers' Details]
+        G --> G6[Buyers Details]
         G6 --> G7[License Number]
         G6 --> G8[Profile Photo]
         G6 --> G9[Gender]
@@ -50,7 +51,7 @@ flowchart TD
     TractorListings --> ProfileSection
 
     subgraph PaymentIntegration
-        H[Secure Payment \(Paystack\)]
+        H[Secure Payment with Paystack]
         H --> H1[Centralized Secure Transactions]
         H --> H2[Real-Time Feedback via Email]
     end
@@ -69,7 +70,7 @@ flowchart TD
 
     subgraph AdminPanel
         J[Admin Panel]
-        J --> J1[Manage & Approve Listings]
+        J --> J1[Manage and Approve Listings]
         J --> J2[Oversee Transactions]
         J --> J3[Maintain Compliance Standards]
     end
