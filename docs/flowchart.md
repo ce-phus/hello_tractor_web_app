@@ -1,7 +1,5 @@
 ## Hello Tractor Flow Chart
 
-# Application Flowchart
-
 ```mermaid
 flowchart TD
     start([User Accesses the Platform])
@@ -18,7 +16,7 @@ flowchart TD
     subgraph UserRegistration
         E[User Registration]
         E --> E1[Secure Sign-Up with Djoser]
-        E1 --> E2[Email Verification (Mailtrap)]
+        E1 --> E2[Email Verification \(Mailtrap\)]
         E --> E3[Easy Onboarding for Buyers & Sellers]
     end
 
@@ -52,7 +50,7 @@ flowchart TD
     TractorListings --> ProfileSection
 
     subgraph PaymentIntegration
-        H[Secure Payment (Paystack)]
+        H[Secure Payment \(Paystack\)]
         H --> H1[Centralized Secure Transactions]
         H --> H2[Real-Time Feedback via Email]
     end
