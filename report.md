@@ -2,7 +2,7 @@
 
 This project involves the design and development of a secondary marketplace platform for buying and selling second-hand tractors and agricultural implements. The platform provided a seamless user experience for both buyers and sellers, integrating features like secure registration, intuitive search, filtering options, messaging system and secure payment integration with Paystack.
 
-![plot](./client/src/assets/Screenshot%20from%202024-10-24%2007-59-05.png)
+![plot](./client/src/assets/Screenshot%20from%202024-11-26%2008-09-32.png)
 
 ## Team Members
 - ### Peter Nakitare
