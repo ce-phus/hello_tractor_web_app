@@ -34,6 +34,15 @@ This project involves the design and development of a secondary marketplace plat
 
     - Easy onboarding process for both buyers and sellers
 
+### Registered Users Can 
+1. All to Non-Registered Users
+2. Add to Cart
+4. See the Order Status
+5. See Order History
+6. Update Profile 
+7. Change Password
+8. Reset Password
+
 ## Tractor Listings
 - Sellers can create detailed listings including:
     - Photos
@@ -59,6 +68,12 @@ This project involves the design and development of a secondary marketplace plat
     - Manage and approve featured listings
     - Oversee every transaction made
     - Maintain platform compliance standard
+
+ ### Admin Users Can
+1. Manage Category (Add, Update, Filter and Delete)
+2. Manage Products (Add, Update, Filter and Delete)
+3. Manage Users (Update, Filter and Delete)
+4. Manage Orders (View and Process)
 
 ## Challenges 
  #### Deployment of the django application to render
