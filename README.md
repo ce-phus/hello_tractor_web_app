@@ -34,6 +34,9 @@ This project involves the design and development of a secondary marketplace plat
 
     - Easy onboarding process for both buyers and sellers
 
+## Dark/Light Theme
+- Custom Light and dark theme at the top navbar
+
 ## Tractor Listings
 - Sellers can create detailed listings including:
     - Photos

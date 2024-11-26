@@ -56,6 +56,9 @@ This project involves the design and development of a secondary marketplace plat
     - Gender
     - Social Accounts etc
 
+## Dark/Light Theme
+- Custom Light and dark theme at the top navbar
+
 ## Secure Payment Integration with Paystack
 - Buyers can purchase implements through the website and make transaction to a secure and centralised account incase of any purchase, reducing/eliminating any chances of been conned
 - Secure gateway and fast feedbeck response of any purchase made through the website via the registeres email in paystack 
