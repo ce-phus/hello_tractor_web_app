@@ -92,3 +92,14 @@ This project involves the design and development of a secondary marketplace plat
 ## Lessons Learnt
 
 - Deployment of the applications on render, both static and the web service
+
+## Frontend link
+- https://render-frontend-kvxa.onrender.com/
+
+## Backend Link Admin panel
+- https://render-backend-58to.onrender.com/
+    or 
+- https://render-backend-58to.onrender.com/admin
+
+## Youtube Link
+- https://www.youtube.com/watch?v=8E4uYmEdYZs

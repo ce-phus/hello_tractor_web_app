@@ -72,13 +72,13 @@ const Post = ({ post }) => {
   return (
     <>
       <div className='bg-white dark:bg-dark space-y-3 flex flex-col mx-5 md:mx-0 md:w-[500px]'>
-        <Link to={profile.username === post.user ? '/me' : `profile/${post.user}`}>
+        <Link to={profile?.username === post?.user ? '/me' : `profile/${post?.user}`}>
             <div className='flex justify-start space-x-2'>
                 <img
                 src={fullProfileImageUrl}
                 className="w-9 hover:scale-105 duration-300 rounded-full"
                 alt="Profile"/>
-                <p className='dark:text-white text-lg font-medium'>{post.user}</p>
+                <p className='dark:text-white text-lg font-medium'>{post?.user}</p>
             </div>
         </Link>
         <div className="w-full relative overflow-hidden mt-2">

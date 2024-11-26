@@ -66,6 +66,16 @@ This project involves the design and development of a secondary marketplace plat
     - Oversee every transaction made
     - Maintain platform compliance standard
 
+## Frontend link
+- https://render-frontend-kvxa.onrender.com/
+
+## Backend Link Admin panel
+- https://render-backend-58to.onrender.com/
+    or 
+- https://render-backend-58to.onrender.com/admin
+
+## Youtube Link
+- https://www.youtube.com/watch?v=8E4uYmEdYZs
 
 ## Support Developer
 1. GitHub Profile - https://www.github.com/ce-phus

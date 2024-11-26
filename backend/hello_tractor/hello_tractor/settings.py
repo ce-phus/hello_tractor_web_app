@@ -171,7 +171,7 @@ EMAIL_HOST_USER = 'b18d088ff8f10c'
 EMAIL_HOST_PASSWORD = '82610e5dbe5c47'
 EMAIL_PORT = '2525'
 DEFAULT_FROM_EMAIL = "hellotractor@gmail.com"
-DOMAIN = 'render-frontend-kvxa.onrender.com'
+DOMAIN = 'localhost:5173'
 
 # EMAIL_BACKEND = env("EMAIL_BACKEND")
 # EMAIL_HOST = env('EMAIL_HOST')

@@ -360,7 +360,7 @@ const Chat = () => {
               className="rounded-full w-10 h-10 object-contain"/>
               </Link>
             <div className="flex flex-col space-y-2">
-              <p className="font-medium tracking-wide dark:text-white">{selectedUser.profile.full_name}</p>
+              <p className="font-medium tracking-wide dark:text-white">{selectedUser?.profile.full_name}</p>
               <div className="flex space-x-3">
                 <button>
                   <IoMdCall className="w-7 h-7 dark:text-white" />

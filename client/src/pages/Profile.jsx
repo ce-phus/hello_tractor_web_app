@@ -16,6 +16,7 @@ const Profile = () => {
 
     const getUserProfileReducer = useSelector((state) => state.getUserProfileReducer);
     const { loading, error, profile } = getUserProfileReducer;
+    console.log("Profile: ", profile)
 
     useEffect(() => {
         if (error) {
@@ -28,7 +29,7 @@ const Profile = () => {
     }, [dispatch, error, navigate, username]);
 
     const renderPosts = () => {
-        if (!profile.posts || profile.posts.length === 0) {
+        if (!profile?.posts || profile?.posts.length === 0) {
             return <div className='dark:text-white text-2xl font-bold'>No Posts available</div>
         }
         return (
@@ -163,7 +164,7 @@ const Profile = () => {
                 </div>
                 <div className="mt-6">
                     <h3 className="text-xl font-medium dark:text-white">Leave a Rating</h3>
-                    <RatingForm profileId={profile.id} />
+                    <RatingForm profileId={profile?.id} />
                 </div>
         </div>
    </Layout>
