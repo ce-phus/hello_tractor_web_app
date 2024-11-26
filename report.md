@@ -63,6 +63,12 @@ This project involves the design and development of a secondary marketplace plat
 ## Order model 
 - Buyers can track their purchase implements at the Order page, and a generated receipt is sent through their mail when a purchase is complete
 
+## Order model 
+- Buyers can track their purchase implements at the Order page, and a generated receipt is sent through their mail when a purchase is complete
+
+## Comment Section on Post Listings
+-  Buyers and sellers can make comments on other user listings
+
 ## Admin Panel 
 - Tools for platform administratorm:
     - Manage and approve featured listings
