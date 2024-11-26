@@ -71,3 +71,15 @@ This project involves the design and development of a secondary marketplace plat
 ## Lessons Learnt
 
 - Deployment of the applications on render, both static and the web service
+
+## Support Developer
+1. GitHub Profile - https://www.github.com/ce-phus
+2. Add a Star 🌟  to this 👆 Repository
+
+## Donate
+
+****
+
+**0112989429**
+
+**More infor:** E-Mail at *pnakitaren2@gmai.com*  
