@@ -60,17 +60,6 @@ This project involves the design and development of a secondary marketplace plat
     - Oversee every transaction made
     - Maintain platform compliance standard
 
-## Challenges 
- #### Deployment of the django application to render
-- Dependancy conflicts and django setup on ASGI operations while using the gunicorn server
-- Serving of mediafiles at the render backend application, read a documentation that render does not fully support serving of mediafiles with django, recommemdation is to serve mediafiles in a S3 Amazon bucket or user a different backend hosting platform
-
-## Recommendation for the challenges
-- Containerise the application using docker and serve the backend the client applications with a load balancer/proxy with nginx or apache to manage requests and for a highly scalable application
-
-## Lessons Learnt
-
-- Deployment of the applications on render, both static and the web service
 
 ## Support Developer
 1. GitHub Profile - https://www.github.com/ce-phus
